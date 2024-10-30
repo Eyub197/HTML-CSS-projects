@@ -1,4 +1,4 @@
-* {box-sizing: border-box;}
+* { box-sizing: border-box; }
 
 body {
     margin: 0;
@@ -45,22 +45,22 @@ p {
 
 /* layout */
 
-.wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-}
 
 main {
     text-align: center;
+    background: rgb(255,235,205);
+    background: linear-gradient(120deg, rgba(255,235,205,1) 0%, rgba(255,139,114,1) 100%) no-repeat; 
 }
 
 .hero {
-    background: rgb(255,235,205);
-    background: linear-gradient(120deg, rgba(255,235,205,1) 0%, rgba(255,139,114,1) 100%);
-    padding: 4.75rem 3.375rem;
+    padding: 4.75rem 3.375rem 4.75rem 3.375rem;
 }
 
 .features{
+    background-color: white;
+}
+
+.wrapper-features {
     display: flex;
     flex-direction: column;
     gap: 2.5em;
@@ -80,13 +80,34 @@ main {
     display: none;
 }
 
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
 /* media */
 
-
-@media (min-width: 700px) {
+@media (min-width: 780px) {
     img {
         width: 195px;
-        height: 150px;
+        height: 159px;
+    }
+    
+    h1 {
+        margin-top: 0;
+    }
+    
+    .hero p {
+        width: 50%;
+    }
+    
+    main {
+        text-align: unset;
+    }
+    
+    .hero {
+        padding-bottom: 0;
     }
 
     .image-container {
@@ -98,15 +119,71 @@ main {
         gap: 2.125rem;
     }
     
-    img.bottom {
-        align-self: flex-end;
+    .wrapper-features {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .feature {
+        flex-basis: 47%;
     }
 
-    main {
-        text-align: unset;
+    .first {
+        flex-basis: 100%;
+    }
+
+    .bottom {
+        align-self: flex-end;
+        margin-bottom: -2em;
     }
     
     .mobile-hidden {
         display: block;
     }
 }  
+
+
+@media (min-width: 1000px) {
+    
+    .image-container {
+        height: 300px;
+    }
+    
+    .hero p {
+        width: 70%;
+    }
+    
+    .hero {
+        display: flex;
+        align-items: center;
+        justify-content: space-between      ;
+    }
+    
+    .responsive-helper {
+        flex-direction: column;
+    }
+    
+    .wrapper-features {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .feature {
+        flex-basis: 30%;;
+    }
+    
+    .feature {
+        padding-top: 4.75em;
+        padding-bottom: 4.75em;
+    }
+    
+    .bottom {
+        align-self: unset;
+        margin-bottom: 0;
+        
+    }
+    
+    .last{
+        align-self: center;
+    }
+}
