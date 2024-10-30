@@ -14,3 +14,20 @@ img {
     height: 3rem;
     border-radius: 50%;
 }
+
+/* typography */
+
+.special-item p  {
+    font-size: 1.375rem;
+    font-weight: bold;
+    color: #0E53CA;
+}
+
+h2 {
+    font-size: 1.75rem;
+}
+
+.item p {
+    font-size: 1.125rem;
+    text-transform: uppercase;
+}
