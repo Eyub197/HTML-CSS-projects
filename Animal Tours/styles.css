@@ -7,14 +7,97 @@ body {
     color: black;
 }
 
+img{
+    width: 305px;
+    height: 233px;
+    object-fit: cover;
+    border: 3px solid black;
+    box-shadow: 4px 4px black;
+    border-radius: 1em;
+}
+
 
 /* typography */
 
+h1 {
+    font-size: 2.25rem;
+    margin-bottom: 0;
+}
 
+h2 {
+    font-size:2rem ;
+    margin-bottom: 1.3rem;
+}
+
+p {
+    font-size: 1.125rem;
+}
+
+.hero p {
+    margin-bottom: 3.25rem;
+}
+
+.feature p {
+    line-height: 1.5;
+    margin-top: 0;
+}
 
 
 /* layout */
 
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+main {
+    text-align: center;
+}
+
+.hero {
+    background: rgb(255,235,205);
+    background: linear-gradient(120deg, rgba(255,235,205,1) 0%, rgba(255,139,114,1) 100%);
+    padding: 4.75rem 3.375rem;
+}
+
+.features{
+    display: flex;
+    flex-direction: column;
+    gap: 2.5em;
+}
+
+.feature:first-of-type {
+    padding-top: 5.625em;
+}
+
+.feature {
+    padding: 0 80px;
+}
+
 /* utilities */
 
+.mobile-hidden {
+    display: none;
+}
+
 /* media */
+
+
+@media (min-width: 700px) {
+    img {
+        width: 195px;
+        height: 150px;
+    }
+    
+    .img-container {
+        display: flex;
+    }
+    
+    main {
+        text-align: unset;
+    }
+    
+    .mobile-hidden {
+        display: block;
+    }
+}  
