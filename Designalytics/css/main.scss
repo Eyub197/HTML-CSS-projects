@@ -1,11 +1,9 @@
 @use 'variables';
 @use 'global';
 
-
 //=== Header===
 
 header.primary {
-    display: flex;
     justify-content: space-between;
 }
 
@@ -43,7 +41,7 @@ aside {
     position: fixed;
     right: 0;
     top: 0;
-    min-height: 100vh;
+    height: 100vh;
     background-color: var(--primary-color);
     width: 40%;
     padding: 3em;
@@ -205,7 +203,7 @@ h1 {
     }
 
     aside {
-        min-height: unset;
+        height: unset;
         position: inherit;
         width: auto;
         padding: 2em;
@@ -263,6 +261,95 @@ h1 {
         grid-template-columns: repeat(2, 1fr);
         gap: 2em;
     }
-
 }
 
+// ===Desktop===
+
+@media (min-width: 1000px) {
+    .wrapper {
+        max-width: 1200px;
+        margin: 3em auto;
+        padding: 0 2em;
+    }
+
+    .col2 {
+        display: flex;
+        gap: 2em;
+    }
+
+    aside {
+        width: 10%;
+        flex-grow: 3;
+        min-width: 250px;
+        padding: 2em;
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+        nav ul {
+            justify-content: space-around;
+            flex-direction: column;
+            gap: 2em;
+
+            li {
+                margin-bottom: 0;
+                display: flex;
+                align-items: center;
+                gap: 0.5em;
+            }
+        }
+    }    
+    
+    // ===Main===
+    
+    main {
+        grid-template-columns: 1.2fr 2fr;
+        grid-template-rows: repeat(3, auto);
+        gap: 3em;
+        flex-grow: 2;
+    }
+
+    .extra-stats {
+        display: flex;
+        justify-content: center;
+        border: 1px solid var(--border-color);
+        padding: 3em;
+
+        ul {
+            display: flex;
+            align-items: center;
+            gap: 5em;
+        }
+
+    }
+
+
+    .premium {
+        display: block;
+        background-color: var(--inner-panel-color);
+        padding: 2em;
+        color: white;
+        border-radius: 0.3em;
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            h3 {
+                font-size: 1.6rem;
+                margin: 0;
+            }
+            
+            img {
+                width: 20px;
+            }
+        }
+            
+        p {
+            line-height: 150%;
+        }
+    }    
+}
