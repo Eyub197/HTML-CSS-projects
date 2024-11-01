@@ -35,6 +35,9 @@ svg { width: 100%; }
 
 .hide-mobile { display: none; }
 
+.toggle-menu { transform: translateX(0%); }
+
 @media (min-width: 620px) {
     .hide-tablet { display: none; }
 }
+
