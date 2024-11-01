@@ -1,7 +1,18 @@
 @use 'variables';
 @use 'global';
 
+
+
 //=== Header===
+
+header.primary, .header-right, .user {
+    display: flex;
+    align-items: center;
+}
+
+header.primary, .user {
+    gap: 1em;
+}
 
 header.primary {
     justify-content: space-between;
@@ -19,15 +30,7 @@ header svg {
 }
 
 .header-right{
-    display: flex;
-    align-items: center;
     gap: 2em;
-}
-
-header.primary, .user {
-    display: flex;
-    align-items: center;
-    gap: 1em;
 }
 
 a.logo img {
@@ -66,10 +69,9 @@ aside {
     
     ul {
         margin-top: 6em;
+
         li {
             margin-bottom: 1.5em;
-        
-
         }   
     }
 }
@@ -144,6 +146,7 @@ h1 {
 }
 
 // ===Customers=== 
+
 
 .customers ul {
     display: grid;
