@@ -205,5 +205,28 @@ h3 {
 
 
 
-/* ===Brands=== */
+/* ===Companies=== */
 
+.companies {
+    background-color: black;
+}
+
+.companies-wrapper {
+    padding-top: 3em;
+    height: 320px;
+}
+ 
+.companies-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 3em;
+}
+
+.company {
+    justify-self: center;
+}
+
+.more-brands {
+    display: none;
+}
