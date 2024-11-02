@@ -21,13 +21,33 @@ img {
     object-fit: cover;
 }
 
+.active {
+    position: relative;
+}
+
+.active::after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 2px;
+    background-color: black;
+    bottom: 0;
+    left: 0;
+}
+
 .wrapper {
     padding-left: 2.375em;
     padding-right: 2.375em;
 }
 
-.hide-mobile {
-    display: none;
+@media (max-width: 650px) {    
+    .hide-mobile {
+        display: none;
+    }    
+
+    .user-testimonial {
+        display: none;
+    }
 }
 
 .offer:first-of-type { background-image: url("./assets/woman-shoes.jpg"); }
@@ -80,7 +100,7 @@ small, .email {
     font-size: 0.875rem;
 }
 
-.user-text, h3 {
+.user-text, h3, .testimonial-quote{
     font-weight: normal;
 }
 
@@ -88,7 +108,7 @@ h1, h4 {
     margin-top: 0;
 }
 
-.image-text, .price {
+.image-text, .price, .author-name {
     font-weight: bold;
 }
 
@@ -317,12 +337,13 @@ footer {
 .secondary-nav-copyright {
     text-align: center;
 }
+
 .contacts {
     display: flex;
     flex-direction: column;
 }
 
-.logo {
+.footer-logo {
     align-self: flex-start;
 }
 
@@ -338,4 +359,174 @@ footer {
 
 small {
     margin: 0 auto;
+}
+
+
+
+/* ===Media Queries===  */
+
+@media (min-width: 680px) {
+
+    .wrapper {
+        padding-left: 5em;
+        padding-right: 5em;
+    }
+
+    .hide-tablet {
+        display: none;
+    }
+
+    .nav-wrapper {
+        display: flex;
+        align-items: center;
+    }
+    /* ===Header=== */
+    .nav-list {
+        gap: 2em;
+    }
+
+    .secondary-cta {
+        background-color: #C6DBBD;
+        display: flex;
+        align-items: center;
+        gap: 0.3em;
+        font-size: 1.125rem;
+        padding: 0.6em 1em;
+        font-weight: bold;
+        border-radius: 0.4em;
+    }
+
+    .logo {
+        align-self: flex-end;
+    }
+
+    /* ===Hero=== */
+    
+    h1 {
+        font-size: 2.8125rem;
+        position: relative;
+    }
+
+    h1::after {
+        content: "";
+        position: absolute;
+        top: -10%;
+        right: 50px;
+        background-image: url(./assets/star-grafic.png);
+        width: 65px;
+        height: 56px;
+    }
+
+    .left-col {
+        text-align: left;
+    }
+
+    .user-testimonial {
+        display: flex;
+        border-radius: 44.5px;
+        padding: 1em;
+        align-items: center;
+        background-color: white;
+    }
+
+    .testimonial-quote {
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    .user-testimonial img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin-right: 1em;
+    }
+
+    .author-name {
+        color: #779469;
+        font-size: 0.875rem;
+    }
+
+    .users {
+        display: flex;
+        align-items: center;
+        gap: 3em;
+    }
+
+    .step {
+        flex-direction: column;
+        flex-basis: 33% ;
+    }
+
+    .steps {
+        display: flex;
+        flex-direction: row;
+        padding-left: 3.2rem;
+        padding-right: 3.2rem;
+        gap: 4em;
+    }
+    
+    .right-col {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .primary-cta {
+        align-self: flex-start;
+        width: unset;
+        padding-left: 2em;
+        padding-right: 2em;
+        margin-left: 2.5em;
+    }
+
+    .step svg {
+        align-self: flex-start;
+    }
+
+    /*===Companies  */
+
+    .companies-list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+
+    /* ===Offers=== */
+    .offer {
+        width: 100%;
+        height: 100%;
+    }
+
+    .offers-container {
+        margin-top: -10em;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 260px);
+    }
+
+    .offers-container .hide-mobile {
+        display: unset;
+    }
+
+    .more-offers {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    /* ===Footer===  */
+    .footer-logo-socials {
+        flex-direction: column ;
+        gap: 1em;
+        justify-content: space-around;
+        align-items: unset;
+    }
+
+    .footer-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    } 
+
+    .nav-list-secondary {
+        margin-top: 0;
+    }
+
 }
