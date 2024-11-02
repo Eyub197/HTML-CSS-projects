@@ -7,7 +7,12 @@ body {
 }
 
 ul {
-    list-style-type: none;
+    list-style: none;
+}
+
+ul, li, ol {
+    padding: 0;
+    margin: 0;
 }
 
 a {
@@ -65,6 +70,7 @@ small, .email {
 }
 
 h1 {
+    margin-top: 0;
     font-size: 2rem;
 }
 
@@ -114,3 +120,68 @@ header {
 }
 
 
+/* === hero === */
+
+.left-col, .right-col {
+    padding-top: 4em;
+    padding-bottom: 3em;
+}
+
+.hero {
+    background-color: #E8F5E2;
+}
+
+.left-col {
+ 
+    text-align: center;
+}
+
+.users-photos img {
+    width: 3.8rem;
+    height: 3.8rem;
+    object-fit: cover;
+    border: 5px solid white;
+    border-radius: 50%;
+    margin: 0 -0.6em;
+}
+ 
+
+.right-col {
+    padding-left: 2.375em;
+    padding-right: 2.375em;
+    border-top: 1px solid black;
+}
+
+
+/* Created my own dots but wont work in the tablet layout */
+
+/* ol {
+    list-style-type: decimal;  Change this to "decimal-leading-zero" for 01, 02, etc. 
+} */
+
+/* ol li {
+    z-index: 0;
+    position: relative;
+}
+
+ol li::marker {
+    content: counter(list-item) " ";
+    font-size: 1rem;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+}
+
+ol li::before {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: black;
+    left: -24px;
+    z-index: -1;
+}
+
+h3 {
+    margin-left: 1.25rem;
+} */
