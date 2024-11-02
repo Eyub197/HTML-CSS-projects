@@ -20,7 +20,8 @@ img {
 }
 
 .wrapper {
-    padding: 0 2.375em;
+    padding-left: 2.375em;
+    padding-right: 2.375em;
 }
 
 .hide-mobile {
@@ -30,17 +31,42 @@ img {
 
 /* ===btns=== */
 
+.view-more-btn {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background-color: unset;
+    border: none;
+    gap: 0.8em;
+    text-decoration: underline;
+}
+
+.more-offers {
+    font-size: 1.625rem;
+} 
+
+
 /* === Typography === */
 
+.nav-list-item a, .email {
+    color: black;
+}
+
+small, .email {
+    font-size: 0.875rem;
+}
+
 .user-text, h3 {
-    font-weight: 400;
+    font-weight: normal;
+}
+
+.image-text, .price {
+    font-weight: bold;
 }
 
 h1 {
     font-size: 2rem;
 }
-
-
 
 .user-text {
     font-size: 1rem;
@@ -54,3 +80,37 @@ h3 {
 .green {
     color: #608A4D;
 }
+
+.price {
+    font-size: 1.375rem ;
+}
+
+.email {
+    text-decoration: underline;
+}
+
+.nav-list-item a {
+    font-size: 1.125rem;
+}
+
+small {
+    color: #6C7667;
+}
+
+
+/* === Header === */
+
+header {
+  background-color: #E8F5E2;
+  border-bottom: 1px solid black;
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.2em;
+    padding-bottom: 1.2em;
+}
+
+
