@@ -21,6 +21,36 @@ img {
     object-fit: cover;
 }
 
+.wrapper {
+    padding-left: 2.375em;
+    padding-right: 2.375em;
+}
+
+.offer:first-of-type { background-image: url("./assets/woman-shoes.jpg"); }
+.offer:nth-of-type(2) { background-image: url("./assets/arrows.jpg"); }
+.offer:nth-of-type(3) { background-image: url("./assets/headphones.jpg"); }
+.offer:nth-of-type(4) { background-image: url("./assets/high-heels.jpg"); }
+.offer:nth-of-type(5) { background-image: url("./assets/tropic-vibe.jpg"); }
+.offer:last-of-type { background-image: url("./assets/product.jpg"); }
+
+/* =================
+    Utilities 
+==================*/
+
+
+.flex-center {
+    display: flex;
+    align-items: center;
+}
+
+.box-shadow {
+    box-shadow: 4px 4px 0 0 black;
+}
+
+.hide-mobile {
+    display: none;
+}
+
 .active {
     position: relative;
 }
@@ -35,60 +65,41 @@ img {
     left: 0;
 }
 
-.wrapper {
-    padding-left: 2.375em;
-    padding-right: 2.375em;
-}
-
-@media (max-width: 680px) {    
-    .hide-mobile {
-        display: none;
-    }    
-
-    .user-testimonial {
-        display: none;
-    }
-}
-
-.offer:first-of-type { background-image: url("./assets/woman-shoes.jpg"); }
-.offer:nth-of-type(2) { background-image: url("./assets/arrows.jpg"); }
-.offer:nth-of-type(3) { background-image: url("./assets/headphones.jpg"); }
-.offer:nth-of-type(4) { background-image: url("./assets/high-heels.jpg"); }
-.offer:nth-of-type(5) { background-image: url("./assets/tropic-vibe.jpg"); }
-.offer:last-of-type { background-image: url("./assets/product.jpg"); }
-
 /* ===btns=== */
 
 button {
     font-family: 'Nunito', sans-serif;
+    cursor: pointer;
 }
 
 .view-more-btn {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
     background-color: unset;
     border: none;
     gap: 0.8em;
     text-decoration: underline;
 }
 
-.more-offers {
-    font-size: 1.625rem;
-} 
-
 
 .primary-cta {
-    background-color: #9BC588;
+    margin-top: 2em;
     border: 2px solid black;
     font-size: 1.375rem;
-    box-shadow: 4px 4px 0 0 black;
-    width: 100%;
-    border-radius: 0.2em;
     font-weight: bold;
     padding: 0.6em 0;
-    margin-top: 2em;
+    width: 100%;
+    border-radius: 0.2em;
+    background-color: #9BC588;
 }
+
+.secondary-cta {
+    gap: 0.3em;
+    padding: 0.6em 1em;
+    font-weight: bold;
+    font-size: 1.125rem;
+    background-color: #C6DBBD;
+    border-radius: 0.2em;
+}
+
 
 /* === Typography === */
 
@@ -146,18 +157,41 @@ small {
     color: #6C7667;
 }
 
+.more-offers {
+    font-size: 1.625rem;
+} 
+
+/* ================
+     Layout
+================== */
+
+.nav-wrapper,
+.offer,
+.footer-logo-socials,
+.nav-list {
+    justify-content: space-between;
+}
+
+.secondary-nav-copyright, .left-col  {
+    text-align: center;
+}
+
+header, .hero, footer {
+    background-color: #E8F5E2;
+}
+
+.contacts, .offer {
+    display: flex;
+    flex-direction: column;
+}
 
 /* === Header === */
 
 header {
-  background-color: #E8F5E2;
   border-bottom: 1px solid black;
 }
 
 .nav-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding-top: 1.2em;
     padding-bottom: 1.2em;
 }
@@ -170,25 +204,15 @@ header {
     padding-bottom: 3em;
 }
 
-.hero {
-    background-color: #E8F5E2;
-}
-
-.left-col {
- 
-    text-align: center;
-}
-
 .users-photos img {
     width: 3.8rem;
     height: 3.8rem;
+    margin: 0 -0.6em;
     object-fit: cover;
     border: 5px solid white;
     border-radius: 50%;
-    margin: 0 -0.6em;
 }
  
-
 .right-col {
     padding-left: 2.375em;
     padding-right: 2.375em;
@@ -196,9 +220,11 @@ header {
 }
 
 .step {
-    display: flex;
-    align-items: center;
     gap: 1.4em;
+}
+
+.step svg {
+    align-self: flex-start;
 }
 
 /* Created my own dots but wont work in the tablet layout */
@@ -235,7 +261,6 @@ h3 {
 } */
 
 
-
 /* ===Companies=== */
 
 .companies {
@@ -258,10 +283,6 @@ h3 {
     justify-self: center;
 }
 
-.more-brands {
-    display: none;
-}
-
 /* ===Offers=== */
 
 .offers {
@@ -270,21 +291,15 @@ h3 {
 }
 
 .offers-container {
-    display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     gap: 1em;
     border-radius: 0.4em;
 }
 
 .offer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     width: 350px;
     height: 205px;
-    box-shadow: 4px 4px 0 0 black;
     border: 2px solid black;
     background-size: cover;
     background-position: center;
@@ -302,10 +317,6 @@ h3 {
     padding: 0.6em;
 }
 
-div.hide-mobile {
-    display: none;
-}
-
 .more-offers {
     margin: 4em auto 5em;
 }
@@ -313,8 +324,8 @@ div.hide-mobile {
 
 /* ===Footer=== */
 
-footer {
-    background-color: #E8F5E2;
+.socials, .nav-list {
+    display: flex;
 }
 
 .footer-wrapper {
@@ -322,34 +333,13 @@ footer {
     padding-bottom: 5em;
 }
 
-.footer-logo-socials {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
 .socials {
-    display: flex;
     gap: 1.3em;
     margin-bottom: 0.8em;
 }
 
-.secondary-nav-copyright {
-    text-align: center;
-}
-
-.contacts {
-    display: flex;
-    flex-direction: column;
-}
-
 .footer-logo {
     align-self: flex-start;
-}
-
-.nav-list {
-    display: flex;
-    justify-content: space-between;
 }
 
 .nav-list-secondary {
@@ -361,11 +351,16 @@ small {
     margin: 0 auto;
 }
 
+/* ================
+    Media Queries
+================  */
 
+/* ===Tablet=== */
 
-/* ===Media Queries===  */
-
-@media (min-width: 680px) {
+@media (min-width: 750px) {
+    .hide-mobile {
+        display: unset;
+    }
 
     .wrapper {
         padding-left: 5em;
@@ -376,24 +371,21 @@ small {
         display: none;
     }
 
-    .nav-wrapper {
+    /* ===Group=== */
+    
+    .user-testimonial, .steps, .right-col{
         display: flex;
-        align-items: center;
-    }
-    /* ===Header=== */
-    .nav-list {
-        gap: 2em;
     }
 
-    .secondary-cta {
-        background-color: #C6DBBD;
-        display: flex;
-        align-items: center;
-        gap: 0.3em;
-        font-size: 1.125rem;
-        padding: 0.6em 1em;
-        font-weight: bold;
-        border-radius: 0.4em;
+    .right-col,.step,
+    .footer-logo-socials {
+        flex-direction: column;
+    }
+
+    /* ===Header=== */
+
+    .nav-list {
+        gap: 2em;
     }
 
     .logo {
@@ -422,10 +414,8 @@ small {
     }
 
     .user-testimonial {
-        display: flex;
-        border-radius: 44.5px;
         padding: 1em;
-        align-items: center;
+        border-radius: 44.5px;
         background-color: white;
     }
 
@@ -437,8 +427,8 @@ small {
     .user-testimonial img {
         width: 60px;
         height: 60px;
-        border-radius: 50%;
         margin-right: 1em;
+        border-radius: 50%;
     }
 
     .author-name {
@@ -447,35 +437,26 @@ small {
     }
 
     .users {
-        display: flex;
-        align-items: center;
         gap: 3em;
     }
 
     .step {
-        flex-direction: column;
         flex-basis: 33% ;
     }
 
     .steps {
-        display: flex;
         flex-direction: row;
         padding-left: 3.2rem;
         padding-right: 3.2rem;
         gap: 4em;
     }
     
-    .right-col {
-        display: flex;
-        flex-direction: column;
-    }
-
     .primary-cta {
         align-self: flex-start;
         width: unset;
+        margin-left: 2.5em;
         padding-left: 2em;
         padding-right: 2em;
-        margin-left: 2.5em;
     }
 
     .step svg {
@@ -488,18 +469,18 @@ small {
         grid-template-columns: repeat(4, 1fr);
     }
 
-
     /* ===Offers=== */
+
     .offer {
         width: 100%;
         height: 100%;
     }
 
     .offers-container {
-        margin-top: -10em;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(3, 260px);
+        margin-top: -10em;
     }
 
     .offers-container .hide-mobile {
@@ -512,26 +493,43 @@ small {
     }
 
     /* ===Footer===  */
+
     .footer-logo-socials {
-        flex-direction: column ;
-        gap: 1em;
         justify-content: space-around;
         align-items: unset;
+        gap: 1em;
     }
 
     .footer-wrapper {
-        display: flex;
         justify-content: space-between;
-        align-items: center;
     } 
 
     .nav-list-secondary {
         margin-top: 0;
     }
 
+    .hide-tablet {
+        display: none;
+    }
 }
 
-@media (min-width: 950px) {
+    /* ===DESKTOP==== */
+
+@media (min-width: 1100px) {
+    .wrapper {
+        max-width: 1300px;
+        margin: 0 auto;
+    }
+
+    /* ===group=== */
+    .desktop-helper, .offers-container {
+        display: grid;
+    }
+    
+    .step, button.more-brands {
+        flex-direction: row;
+    }
+
     .wrapper {
         max-width: 1300px;
         margin: 0 auto;
@@ -540,10 +538,9 @@ small {
     /* ===hero=== */
 
     .desktop-helper {
+        grid-template-columns: 1.3fr 1fr;
         max-width: 1300px;
         margin: 0 auto  ;
-        display: grid;
-        grid-template-columns: 1.3fr 1fr;
     }
 
     .steps {
@@ -551,16 +548,14 @@ small {
         flex-basis: unset;
         gap: 1em;
     }
+
     .step {
-        align-self: unset;
         align-items: center;
-        flex-direction: row;
+        align-self: unset;
     }
 
-    
     h1::after {
         right: -30px;
-     
     }
 
     .right-col {
@@ -571,6 +566,7 @@ small {
     .primary-cta {
         margin-top: 1em
     }
+
     /* ===companies=== */
  
     .companies-list {
@@ -578,28 +574,25 @@ small {
     }
 
     button.more-brands {
-        cursor: pointer;
         display: flex;
-        flex-direction: row;
-        color: white;
         gap: 0.1em;
         font-size: 1.25rem;
+        color: white;
     }
 
     /* ===offers=== */
 
     .offers-container {
-        display: grid;
         grid-template-columns: 2fr 1fr 1.5fr 1.6fr;
         grid-template-rows: repeat(2, 260px);
     }
 
     .featured {
-        grid-column: 1 /3;
+        grid-column: 1 / 3;
     }
 
     .featured-2 {
-        grid-column: 2/ 4;
+        grid-column: 2 / 4;
     }
 
 }
