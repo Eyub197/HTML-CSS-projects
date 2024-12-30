@@ -112,3 +112,32 @@ body {
 .card-footer button:hover {
   background: hsl(195, 53%, 89%);
 }
+
+.card-wrapper {
+  container: card / inline-size;
+}
+
+@container card (max-width: 450px) {
+  .card {
+    grid-template-columns: 1fr;
+    grid-template-rows: 200px 200px;
+  }
+}
+
+@media (max-width: 650px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 400px) {
+  .header-nav {
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .header-nav a {
+    padding-block: 0.5em;
+  }
+
+}
