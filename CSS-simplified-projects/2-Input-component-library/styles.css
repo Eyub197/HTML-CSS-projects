@@ -8,8 +8,8 @@
 
 
 input {
-    font-size: 1rem;
-    padding: 8px;
+    font-size:  inherit;
+    padding: 0.5em;
     border-radius: 3px;
     border: 1px solid var(--default-color);
 }
