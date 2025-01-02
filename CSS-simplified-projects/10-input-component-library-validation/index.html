@@ -8,9 +8,27 @@
     <title>Input Library</title>
   </head>
   <body>
-    <input type="text" class="input" value="Default" minlength="4" required/>
-    <input type="text" class="input input-large" value="Large" minlength="6" required/>
-    <input type="text" class="input input-small" value="Small" minlength="2" required/>
-    <input type="text" class="input" value="Disabled" disabled />
+    <main class="wrapper">
+        <div class="input-wrapper">
+            <input type="text" class="input" value="Default" minlength="4" required/>
+            <span class="input-state valid" aria-hidden="true">&#10003</span>
+            <span class="input-state invalid" aria-hidden="true">&#9747;</span>
+        </div>
+        <div class="input-wrapper">
+            <input type="text" class="input input-large" value="Large" minlength="6" required/>
+            <span class="input-state valid" aria-hidden="true">&#10003</span>
+            <span class="input-state invalid" aria-hidden="true">&#9747;</span>
+        </div>
+        <div class="input-wrapper">
+            <input type="text" class="input input-small" value="Small" minlength="2" required/>
+            <span class="input-state valid" aria-hidden="true">&#10003</span>
+            <span class="input-state invalid" aria-hidden="true">&#9747;</span>
+        </div>
+        <div class="input-wrapper">
+            <input type="text" class="input" value="Disabled" disabled />
+            <span class="input-state valid" aria-hidden="true">&#10003</span>
+            <span class="input-state invalid" aria-hidden="true">&#9747;</span>
+        </div>
+    </main>
   </body>
 </html>
