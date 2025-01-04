@@ -1,3 +1,72 @@
+@layer reset, base, theme, layout, super-sidebar, utility;
+
+@layer reset {
+
+  /* 1. Use a more-intuitive box-sizing model */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+/* 2. Remove default margin */
+  * {
+    margin: 0;
+  }
+
+  body {
+    /* 3. Add accessible line-height */
+    line-height: 1.5;
+    /* 4. Improve text rendering */
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* 5. Improve media defaults */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* 6. Inherit fonts for form controls */
+  input, button, textarea, select {
+    font: inherit;
+  }
+
+  /* 7. Avoid text overflows */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+
+  /* 8. Improve line wrapping */
+  p {
+    text-wrap: pretty;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+  }
+
+  /*
+    9. Create a root stacking context
+  */
+  #root {
+    isolation: isolate;
+  }
+}
+
+@layer base {
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    padding: 0;
+    font-family: "Helvetica", "Arial", sans-serif;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
 @layer theme {
   :root {
     --bg-color-lighter: color-mix(in hsl, var(--bg-color), white 7.5%);
@@ -24,5 +93,149 @@
     --success-color: hsl(145, 65%, 39%);
 
     --warning-color: hsl(40, 86%, 57%);
+  }
+
+  .sidebar, 
+  .sidebar-right,
+  .sidebar-header { background-color: var(--bg-color-dark); }
+
+  .super-sidebar { background-color: var(--bg-color-darker); }
+
+  .main-header, .main { background-color: var(--bg-color); }
+
+  .main-header, .sidebar-header {
+    border-bottom: 1px solid hsl(240, 5%, 8%);
+  }
+
+  .link-without-image {
+    color: var(--foreground-color);
+  }
+
+  .group-count::after {
+    background-color: var(--danger-color);
+    color: var(--danger-foreground-color);  
+  }
+}
+
+@layer layout {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 72px 240px 1fr 240px;
+    grid-template-rows: 45px 1fr;
+    grid-template-areas: 
+      "super-sidebar sidebar-header header header"
+      "super-sidebar sidebar main sidebar-right";
+    min-height: 100%;
+    width: 100%;
+  }
+
+  .super-sidebar {
+    grid-area: super-sidebar;
+  }
+
+  .sidebar {
+    grid-area: sidebar;
+  }
+
+  .sidebar-header {
+    grid-area: sidebar-header;
+  }
+  
+  .main-header {
+    grid-area: header;
+  }
+
+  .main {
+    grid-area: main;
+  }
+
+  .sidebar-right {
+    grid-area: sidebar-right;
+  }
+
+}
+
+@layer super-sidebar {
+  .link-without-image, .link-with-image {
+    display: inline-block;
+    border-radius: 1.5rem;
+    max-height: 48px;
+    width: 48px;
+    clip-path: circle(46.1% at 50% 50%);
+    transition: clip-path 250ms ease-in-out;
+  }
+
+  .link-without-image {
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    height: 100%;
+    transition: background-color 250ms ease-in-out;
+  } 
+
+  .link-without-image:hover, .link-with-image:hover {
+    clip-path: circle(64.5% at 50% 51%);
+  }
+
+  .link-without-image:hover {
+    background-color: var(--accent-color);
+  }
+
+  .mountain, .gym {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .mountain {
+    background-image: url("imgs/servers/hiking-lovers.jpg");
+  }
+
+  .gym {
+    background-image: url("imgs/servers/gym-rats.jpg");
+  }
+
+  .link-with-image {
+    object-fit: cover;
+  }
+
+  .group-count {
+    position: relative;
+    height: 48px;
+    width: 48px;
+    transition: clip-path 250ms ease-in-out;
+  }
+
+  .group-count > a {
+    height: 100%;
+    width: 100%;
+  }
+
+  .group-count::after {
+    content: "2";
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 26px;
+    height: 26px;
+    bottom: -5px;
+    right: -4px;
+    font-weight: 700;
+    padding-inline: 0.375rem;
+    border: 0.25rem solid var(--bg-color-darker);
+    font-size: 0.75rem;
+    border-radius: 1rem;
+  }
+
+  .super-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-inline: 14px;
+    padding-block-start: 12px;
   }
 }
