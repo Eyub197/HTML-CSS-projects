@@ -156,6 +156,16 @@
 }
 
 @layer super-sidebar {
+  
+  .super-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    padding-inline: 14px;
+    padding-block-start: 12px;
+  }
+
   .link-without-image, .link-with-image {
     display: inline-block;
     border-radius: 1.5rem;
@@ -172,14 +182,15 @@
     align-items: center;
     text-transform: uppercase;
     height: 100%;
-    transition: background-color 250ms ease-in-out;
   } 
 
+  
   .link-without-image:hover, .link-with-image:hover {
     clip-path: circle(64.5% at 50% 51%);
   }
-
+  
   .link-without-image:hover {
+    transition: background-color 250ms ease-in-out;
     background-color: var(--accent-color);
   }
 
@@ -202,16 +213,47 @@
     object-fit: cover;
   }
 
-  .group-count {
+  .group-count, .inner-wrapper-super-sidebar {
     position: relative;
-    height: 48px;
-    width: 48px;
     transition: clip-path 250ms ease-in-out;
   }
 
-  .group-count > a {
-    height: 100%;
-    width: 100%;
+  .inner-wrapper-super-sidebar::before {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    background-color: white;
+    height: 45px;
+    width: 10px;
+    left: -20px;
+    top: 0;
+    clip-path: circle(16.8% at 50% 50%);
+    transition: clip-path 250ms ease-in-out;
+  }
+
+  .active > .link-without-image {
+    background-color: var(--accent-color);
+  }
+
+  .active::before {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    background-color: white;
+    height: 45px;
+    width: 10px;
+    left: -20px;
+    top: 0;
+    clip-path: circle(50.0% at 50% 50%);
+  }
+
+    .inner-wrapper-super-sidebar:hover::before {
+      clip-path: circle(30.0% at 50% 50%);
+  }
+
+  .inner-wrapper-super-sidebar > a {
+    height: 48px;
+    width: 48px;
   }
 
   .group-count::after {
@@ -231,11 +273,4 @@
     border-radius: 1rem;
   }
 
-  .super-sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    padding-inline: 14px;
-    padding-block-start: 12px;
-  }
 }
