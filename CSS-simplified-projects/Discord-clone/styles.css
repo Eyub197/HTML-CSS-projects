@@ -1,4 +1,4 @@
-@layer reset, base, theme, layout, super-sidebar, sidebar-header, sidebar, main-header, main,  utility;
+@layer reset, base, theme, layout, super-sidebar, sidebar-header, sidebar, main-header, main, sidebar-right, utility;
 
 @layer reset {
 
@@ -66,6 +66,11 @@
     padding: 0;
     font-family: "Helvetica", "Arial", sans-serif;
     color: var(--foreground-color);
+  }
+  
+  button {
+    background: transparent;
+    border: 0;
   }
 
   button, a {
@@ -499,7 +504,7 @@
     color: var(--foreground-color);
     border: none;
     outline: none;
-    padding: 0.375rem;
+    padding: 0.2rem;
     padding-inline-end: calc(0.375rem + 1rem);
     font-size: 0.875rem;
     transition: width 0.25s ease;
@@ -706,7 +711,85 @@
   }
 }
 
+@layer sidebar-right {
+  .sidebar-right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-block: 8px;
+    padding-inline: 12px;
+  }
+  .status-indicator {
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--foreground-color-dark);
+    padding-inline-start: 0.375rem;
+  }
 
+  .user-image {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .online-user-name {
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--foreground-color);
+  }
+
+  .user-img-wrapper {
+    --status-color: var(--success-color);
+    position: relative;
+  }
+
+  .user-img-wrapper::after {
+    content: "";
+    position: absolute;
+    width: 0.8rem;
+    height: 0.8rem;
+    background-color: var(--status-color);
+    border-radius: 50%;
+    top: 20px;
+    right: -5px;
+  }
+
+  .unsure::after {
+    --status-color: var(--warning-color);
+  }
+
+  .offline {
+    --status-color: var(--danger-color);
+  }
+
+  .user-list-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+  }
+
+  .user-list-row:hover, .user-list-row:focus-visible {
+    background-color: var(--bg-color-light);
+  }
+
+  .user-list-row-active {
+    background-color: var(--bg-color-lighter);
+  }
+
+  .user-list-row-offline {
+    opacity: 0.5;
+  }
+
+  .user-list-row-offline:hover, .user-list-row-offline:focus-visible {
+    opacity: 1;
+  }
+}
 
 
 
