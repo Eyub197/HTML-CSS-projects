@@ -1,4 +1,4 @@
-@layer reset, base, theme, layout, super-sidebar, utility;
+@layer reset, base, theme, layout, super-sidebar, sidebar-header, utility;
 
 @layer reset {
 
@@ -53,6 +53,11 @@
 }
 
 @layer base {
+  *:focus-visible {
+    outline: 2px solid var(--outline-color);
+    outline-offset: 3px;
+  }
+
   html, body {
     height: 100%;
   }
@@ -65,6 +70,7 @@
   a {
     text-decoration: none;
   }
+
 }
 
 @layer theme {
@@ -115,6 +121,9 @@
     background-color: var(--danger-color);
     color: var(--danger-foreground-color);  
   }
+
+  .server-button { color: var(--foreground-color); }
+  .sidebar-header svg { fill: var(--foreground-color); }
 }
 
 @layer layout {
@@ -218,6 +227,11 @@
     transition: clip-path 250ms ease-in-out;
   }
 
+  .inner-wrapper-super-sidebar:focus {
+    outline: 2px solid var(--outline-color);
+    outline-offset: 3px;
+  }
+
   .inner-wrapper-super-sidebar::before {
     content: "";
     position: absolute;
@@ -273,4 +287,25 @@
     border-radius: 1rem;
   }
 
+}
+
+@layer sidebar-header {
+  .sidebar-header {
+    display: flex;
+    justify-content: space-between  ;
+    align-items: center;
+    padding-inline: 12px;
+  }
+
+  .server-button {  
+    background-color: transparent;
+    border: 0;
+    font-size: 0.8rem;
+  }
+
+  .sidebar-header svg {
+    height: 16px;
+    width: 16   px;
+
+  }
 }
