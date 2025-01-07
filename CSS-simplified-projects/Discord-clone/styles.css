@@ -1,4 +1,4 @@
-@layer reset, base, theme, layout, super-sidebar, sidebar-header, sidebar, main-header,  utility;
+@layer reset, base, theme, layout, super-sidebar, sidebar-header, sidebar, main-header, main,  utility;
 
 @layer reset {
 
@@ -526,15 +526,200 @@
   
 }
 
+@layer main {
+  .main {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: flex-end;
+  }
+
+  .user-main-message {
+    display: grid;
+    padding-inline: 14px;
+      grid-template-areas: 
+        "image name date"
+        "image message message";
+    justify-content: start;
+    align-items: center;
+    column-gap: 12px;
+  }
+
+  .user-main-message:first-of-type {
+    position: relative;
+  }
+
+  .user-main-message > img {
+    grid-template-areas: image;
+    transform: translateY(10px);
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    object-position: center;
+  }
+
+  .user-name {
+    grid-template-areas: name;
+    font-size: 1rem;
+  }
+
+  .user-first-message {
+    margin-top: -8px;
+    grid-area: message;
+  }
+
+  .time {
+    text-transform: uppercase;
+  }
+
+  .date {
+    font-size: 0.75rem;
+    color: var(--foreground-color-dark);
+  }
+
+  .message-wrapper {
+   display: grid;
+   grid-template-areas: 
+    "time user-message toolbox";
+    gap: 22px;
+    align-items: center;
+    justify-content: start;
+  }
+
+  .action-set {
+    position: absolute;
+    right: 10px;
+    top: -10px;
+    display: flex;
+    align-self: center;
+    padding: 4px;
+    border-radius: 8px;
+    background-color: var(--bg-color-dark);
+    border: 1px solid var(--bg-color-light);
+  }
+  .user-message {
+    grid-area: user-message;
+  }
+
+  .time {
+    grid-area: time;
+  }
+
+  .user-main-message:not(:first-of-type) {
+    margin-block-start: 12px;
+  }
+  .message-wrapper:hover {
+    background-color: var(--chat-hover-bg-color);
+  }
+  .hover-only {
+    visibility: hidden;
+  }
+
+  .user-main-message:hover {
+    background-color: var(--chat-hover-bg-color);
+  }
+
+  .message-wrapper:hover > .hover-only,
+  .user-main-message:first-of-type:hover > .hover-only {
+    visibility: visible;
+  }
+
+  button.action:hover {
+    color: var(--foreground-color);
+    background-color: var(--bg-color-light);
+    border-radius: 6px;
+    transform: scale(1.1);
+  }
+
+  .action-icon-active {
+    color: var(--foreground-color);
+    background-color: var(--bg-color-light);
+    border-radius: 6px;
+    transform: scale(1.1);
+  }
+
+  .message-input-wrapper {
+    --line-height: 1.25;
+    --icon-offset: 0.25rem;
+    --padding-block: 0.875rem;
+    --outline-offset: 0.25rem;
+    --base-height: calc(var(--padding-block) * 2 + var(--line-height) * 1em);
+    --icon-size: calc(var(--base-height) - var(--icon-offset) * 2);
+    
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+    margin-inline: 1rem;
+  }
+
+  .message-input-wrapper .message-input-actions {
+    display: flex;
+    position: absolute;
+    top: var(--icon-offset);
+    right: var(--icon-offset);
+  }
+
+  .message-input-wrapper .message-input-actions .message-input-icon{
+    position: static;
+  }
+  button.message-input-icon {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: var(--icon-offset);
+    left: var(--icon-offset);
+    border-radius: 0.25rem;
+    height: var(--icon-size);
+    width: var(--icon-size);
+    color: var(--foreground-color-dark);
+  }
+  
+  button.message-input-icon:hover,
+  button.message-input-icon:focus-visible {
+    color: var(--foreground-color);
+  }
+  
+  button.message-input-icon:active {
+    color: var(--foreground-color-light);
+  }
+  
+  button.message-input-icon svg {
+    width: calc(var(--base-height) - 1.5rem);
+    height: calc(var(--base-height) - 1.5rem);
+  }
+  
+  .message-input {
+    resize: none;
+    background-color: var(--bg-color-light);
+    color: var(--foreground-color);
+    border-radius: 0.5rem;
+    border: none;
+    padding-block: var(--padding-block);
+    padding-inline-start: calc(var(--icon-size) + var(--icon-offset) + 0.25rem);
+    padding-inline-end: calc(var(--icon-size) * 4 + var(--icon-offset) + 0.25rem);
+    flex-grow: 1;
+    scrollbar-width: none;
+    field-sizing: content;
+  }
+}
+
+
+
+
+
 @layer utility {
   :root {
     --gap: 6px;
   }
-
 
   .flex-center {
     display: flex;
     align-items: center;
     gap: var(--gap);
   }
+
+
 }
