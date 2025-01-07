@@ -1,4 +1,4 @@
-@layer reset, base, theme, layout, super-sidebar, sidebar-header, utility;
+@layer reset, base, theme, layout, super-sidebar, sidebar-header, sidebar, utility;
 
 @layer reset {
 
@@ -65,10 +65,21 @@
   body {
     padding: 0;
     font-family: "Helvetica", "Arial", sans-serif;
+    color: var(--foreground-color);
+  }
+
+  button, a {
+    cursor: pointer;
   }
 
   a {
     text-decoration: none;
+    color: inherit;
+  }
+
+  li, ul {
+    list-style: none;
+    padding: 0;
   }
 
 }
@@ -292,20 +303,108 @@
 @layer sidebar-header {
   .sidebar-header {
     display: flex;
-    justify-content: space-between  ;
+    justify-content: space-between;
     align-items: center;
     padding-inline: 12px;
   }
-
+  
   .server-button {  
     background-color: transparent;
     border: 0;
-    font-size: 0.8rem;
+    font-size: 1rem;
+    text-transform: capitalize;
   }
 
   .sidebar-header svg {
     height: 16px;
-    width: 16   px;
+    width: 16px;
+  }
+}
 
+@layer sidebar {
+  .niche-button, .group-chanel {
+    color: var(--foreground-color-dark);
+  }
+
+  .group-chanel {
+    border-radius: 4px;
+    margin-inline: 12px;
+    padding: 6px;
+    margin-left:6px;
+  }
+
+  .group-chanel:first-of-type {
+    margin-block-start: 16px;
+  }
+
+  .group-chanel:hover, .niche-button:hover {
+    color: var(--foreground-color);
+  }
+  
+  .group-chanel:hover {
+    background-color: var(--bg-color-light);
+
+  }
+  .group-chanel:active {
+    background-color: var(--bg-color-lighter);
+    color: var(--foreground-color-light);
+  }
+
+  .group-chanel-inactive {
+    color: var(--foreground-color-darker);
+  }
+
+  .group-chanel svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .group-chanel a {
+    text-transform: lowercase;
+  }
+
+  .niche {
+    margin-top: 10px;
+    margin-inline-start: -3px;
+  }
+
+  .niche-button {
+    --gap: 2px; 
+    text-transform: uppercase;
+    width: max-content;
+    font-size: 0.75rem;
+    background-color: inherit;
+    border: 0;
+  }
+
+  .niche-button svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .niche ul .group-chanel:first-of-type {
+    margin-block-start: 0;
+  }
+
+  .niche ul .group-chanel {
+    margin-inline: 12px;
+  }
+
+  .niche-close button svg {
+    transform: rotate(-90deg);
+  }
+
+} 
+
+@layer utility {
+  :root {
+    --gap: 6px;
+  }
+
+
+  .flex-center {
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
   }
 }
